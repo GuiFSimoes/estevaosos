@@ -10,11 +10,13 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 
 export const routes: Routes = [
+  // página de entrada
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
+
   {
     path: '404',
     component: P404Component,
@@ -33,14 +35,14 @@ export const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     data: {
-      title: 'Login Page'
+      title: 'SOSSoluções - Login'
     }
   },
   {
     path: 'register',
     component: RegisterComponent,
     data: {
-      title: 'Register Page'
+      title: 'Solicitação de registro'
     }
   },
   {

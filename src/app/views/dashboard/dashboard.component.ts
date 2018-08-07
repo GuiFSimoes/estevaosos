@@ -377,6 +377,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('carregar...');
     // generate random values for mainChart
     for (let i = 0; i <= this.mainChartElements; i++) {
       this.mainChartData1.push(this.random(50, 200));
