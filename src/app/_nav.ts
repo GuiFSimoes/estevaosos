@@ -3,28 +3,31 @@ export const navItems = [
     name: 'Dashboard',
     url: '/dashboard',
     icon: 'icon-speedometer',
-    badge: {
+    /* badge: {
       variant: 'info',
       text: 'NEW'
-    }
+    } */
   },
   {
     title: true,
-    name: 'Theme'
+    name: 'Cadastros'
   },
   {
-    name: 'Colors',
-    url: '/theme/colors',
-    icon: 'icon-drop'
+    name: 'Clientes',
+    url: '/cadastro/clientes',
+    icon: 'icon-user'
   },
   {
-    name: 'Typography',
-    url: '/theme/typography',
-    icon: 'icon-pencil'
+    name: 'Peças e Serviços',
+    url: '/cadastro/produtos',
+    icon: 'icon-settings'
+  },
+  {
+    divider: true
   },
   {
     title: true,
-    name: 'Components'
+    name: 'Serviços'
   },
   {
     name: 'Base',
@@ -215,7 +218,7 @@ export const navItems = [
       }
     ]
   },
-  {
+  /* {
     name: 'Download CoreUI',
     url: 'http://coreui.io/angular/',
     icon: 'icon-cloud-download',
@@ -227,5 +230,5 @@ export const navItems = [
     url: 'http://coreui.io/pro/angular/',
     icon: 'icon-layers',
     variant: 'danger'
-  }
+  } */
 ];

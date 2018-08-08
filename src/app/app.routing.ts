@@ -53,6 +53,10 @@ export const routes: Routes = [
     },
     children: [
       {
+        path: 'cadastro',
+        loadChildren: './views/cadastro/cadastro.module#CadastroModule'
+      },
+      {
         path: 'base',
         loadChildren: './views/base/base.module#BaseModule'
       },
