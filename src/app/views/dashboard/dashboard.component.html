@@ -12,7 +12,7 @@
       </div>
     </div>
     <!--/.col-->
-    
+
     <div class="col-12 col-sm-6 col-lg-3">
       <div class="card">
         <div class="card-body p-0 clearfix">
@@ -48,5 +48,52 @@
 
   </div>
   <!--/.row-->
+
+
+
+  <div class="card">
+    <div class="card-header bg-info">
+      <span class="text-white">XML File load</span>
+    </div>
+    <div class="card-body">
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="icon-doc"></i>
+              </span>
+            </div>
+            <div class="custom-file">
+              <input type="file" id="fileInputModalAprovacao" class="custom-file-input form-control" name="Arquivo XML" tooltip="Arquivo XML"
+                (change)="uploadFileModal($event)" accept="*">
+              <label class="custom-file-label d-inline-block text-truncate">{{ arquivoXML ? arquivoXML.name : 'Selecione um XML' }}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12" *ngIf="arquivoXML">
+          XML Folder ({{ folderLido }}) ->
+          <span class="text-muted">
+            Mapas: {{ mapasLidos }}
+          </span>
+          <span class="text-muted">
+            Sources: {{ sourcesLidos }}
+          </span>
+          <span class="text-muted">
+            Targets: {{ targetsLidos }}
+          </span>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+
 
 </div>
