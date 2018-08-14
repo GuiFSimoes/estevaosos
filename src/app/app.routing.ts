@@ -9,6 +9,9 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 
+// validação de naveção para usuários logados
+import { AuthGuard } from './services/auth-guard.service';
+
 export const routes: Routes = [
   // página de entrada
   {
@@ -51,49 +54,25 @@ export const routes: Routes = [
     data: {
       title: 'Home'
     },
+    canActivate: [AuthGuard],
     children: [
-      {
-        path: 'cadastro',
-        loadChildren: './views/cadastro/cadastro.module#CadastroModule'
-      },
-      {
-        path: 'base',
-        loadChildren: './views/base/base.module#BaseModule'
-      },
-      {
-        path: 'buttons',
-        loadChildren: './views/buttons/buttons.module#ButtonsModule'
-      },
-      {
-        path: 'charts',
-        loadChildren: './views/chartjs/chartjs.module#ChartJSModule'
-      },
-      {
-        path: 'dashboard',
-        loadChildren: './views/dashboard/dashboard.module#DashboardModule'
-      },
-      {
-        path: 'icons',
-        loadChildren: './views/icons/icons.module#IconsModule'
-      },
-      {
-        path: 'notifications',
-        loadChildren: './views/notifications/notifications.module#NotificationsModule'
-      },
-      {
-        path: 'theme',
-        loadChildren: './views/theme/theme.module#ThemeModule'
-      },
-      {
-        path: 'widgets',
-        loadChildren: './views/widgets/widgets.module#WidgetsModule'
-      }
+      { path: 'cadastro', loadChildren: './views/cadastro/cadastro.module#CadastroModule' },
+
+      { path: 'base', loadChildren: './views/base/base.module#BaseModule' },
+      { path: 'buttons', loadChildren: './views/buttons/buttons.module#ButtonsModule' },
+      { path: 'charts', loadChildren: './views/chartjs/chartjs.module#ChartJSModule' },
+      { path: 'dashboard', loadChildren: './views/dashboard/dashboard.module#DashboardModule' },
+      { path: 'icons', loadChildren: './views/icons/icons.module#IconsModule' },
+      { path: 'notifications', loadChildren: './views/notifications/notifications.module#NotificationsModule' },
+      { path: 'theme', loadChildren: './views/theme/theme.module#ThemeModule' },
+      { path: 'widgets', loadChildren: './views/widgets/widgets.module#WidgetsModule' }
     ]
   }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

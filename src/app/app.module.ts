@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { LocationStrategy, HashLocationStrategy, CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
@@ -39,9 +41,26 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { ToastrModule } from 'ngx-toastr';
+
+// DATEPICKER
+import { defineLocale } from 'ngx-bootstrap';
+import { ptBrLocale } from 'ngx-bootstrap/locale';
+defineLocale('pt-br', ptBrLocale);
+
+// componentes de autenticação
+import { AutenticacaoService, AuthGuard, CustomToastOption } from './services';
+const APP_AUTH = [AutenticacaoService, AuthGuard];
+const TOAST_OPTIONS: Partial<CustomToastOption> = {};
+
+import { NotificacaoService } from './services';
+const COMP_SERVICE = [NotificacaoService];
 
 @NgModule({
   imports: [
+    CommonModule,
+    BrowserAnimationsModule,
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     AppAsideModule,
@@ -52,6 +71,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     PerfectScrollbarModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
+    ToastrModule.forRoot(TOAST_OPTIONS),
     ChartsModule
   ],
   declarations: [
@@ -62,10 +82,13 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     LoginComponent,
     RegisterComponent
   ],
-  providers: [{
-    provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  }],
-  bootstrap: [ AppComponent ]
+  providers: [
+    ...APP_AUTH,
+    ...COMP_SERVICE,
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: LOCALE_ID, useValue: 'pt-BR' },
+    // { provide: ToastOptions, useClass: CustomOption },
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

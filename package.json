@@ -1,12 +1,11 @@
 {
-  "name": "@coreui/coreui-free-angular-admin-template",
-  "version": "2.0.0-rc.2",
-  "description": "CoreUI Free Angular 2+ Admin Template",
+  "name": "sossolucoes",
+  "version": "1.0.0",
+  "description": "Sistema de cadastro de clientes e controle de orçamentos",
   "author": {
-    "name": "Łukasz Holeczek",
-    "url": "http://holeczek.pl",
-    "github": "https://github.com/mrholek",
-    "twitter": "https://twitter.com/lukaszholeczek"
+    "name": "Carlos Guilherme Simões",
+    "url": "https://guilhermesimoes.firebaseapp.com",
+    "github": "https://github.com/guifsimoes"
   },
   "contributors": [
     {
@@ -14,8 +13,8 @@
       "url": "https://github.com/xidedix"
     }
   ],
-  "homepage": "https://coreui.io/angular",
-  "copyright": "Copyright 2018 creativeLabs Łukasz Holeczek",
+  "homepage": "https://sossolucoes.firebaseapp.com",
+  "copyright": "Copyright 2018 - Guilherme Simões (Formalis)",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -40,21 +39,31 @@
     "@coreui/coreui": "^2.0.4",
     "@coreui/coreui-plugin-chartjs-custom-tooltips": "^1.2.0",
     "@coreui/icons": "^0.3.0",
+    "angular2-ladda": "^2.0.0",
+    "angular2-text-mask": "^9.0.0",
     "bootstrap": "^4.1.2",
     "chart.js": "^2.7.2",
     "core-js": "^2.5.7",
+    "firebase": "^5.3.1",
     "flag-icon-css": "^3.0.0",
     "font-awesome": "^4.7.0",
     "moment": "^2.22.2",
     "mutationobserver-shim": "^0.3.2",
     "ng2-charts": "^1.6.0",
+    "ng2-select2": "^1.0.0-beta.16",
+    "ng2-table": "^1.3.2",
+    "ng2-toastr": "^4.1.2",
     "ngx-bootstrap": "^3.0.1",
+    "ngx-loading": "^1.0.14",
     "ngx-perfect-scrollbar": "^6.2.0",
+    "ngx-toastr": "^8.10.2",
     "ngx-xml2json": "^1.0.2",
     "rxjs": "^6.2.1",
     "rxjs-compat": "^6.2.1",
+    "select2": "^4.0.6-rc.1",
     "simple-line-icons": "^2.4.1",
     "ts-helpers": "^1.1.2",
+    "web-animations-js": "^2.3.1",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

@@ -6,28 +6,34 @@
           <div class="card-group">
             <div class="card bg-light p-4">
               <div class="card-body">
-                <h1>Entrar</h1>
-                <p class="text-muted">Entre com seu email e senha para se logar</p>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-user"></i></span>
+                <form action="login(usuario)">
+                  <h1>Entrar</h1>
+                  <p class="text-muted">Entre com seu email e senha para se logar</p>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="icon-user"></i>
+                      </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="E-mail" [(ngModel)]="usuario.email">
                   </div>
-                  <input type="text" class="form-control" placeholder="E-mail">
-                </div>
-                <div class="input-group mb-4">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-lock"></i></span>
+                  <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="icon-lock"></i>
+                      </span>
+                    </div>
+                    <input type="password" class="form-control" placeholder="Senha" [(ngModel)]="usuario.senha">
                   </div>
-                  <input type="password" class="form-control" placeholder="Senha">
-                </div>
-                <div class="row">
-                  <div class="col-6">
-                    <button type="button" class="btn btn-primary px-4" [routerLink]="['/dashboard']">Entrar</button>
+                  <div class="row">
+                    <div class="col-6">
+                      <button type="submit" [ladda]="estaCarregando" data-style="zoom-in" class="btn btn-primary px-4">Entrar</button>
+                    </div>
+                    <div class="col-6 text-right">
+                      <button type="button" class="btn btn-link px-0">Esqueceu a senha?</button>
+                    </div>
                   </div>
-                  <div class="col-6 text-right">
-                    <button type="button" class="btn btn-link px-0">Esqueceu a senha?</button>
-                  </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>
