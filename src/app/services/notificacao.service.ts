@@ -18,7 +18,15 @@ export interface CustomToastOption extends GlobalToastrConfig {
 @Injectable()
 export class NotificacaoService {
 
-    private optionsToast: CustomToastOption;
+    private optionsToast = {
+        newestOnTop: false,
+        autoDismiss: true,
+        closeButton: true,
+        positionClass: 'toast-top-center',
+        toastLife: 10000,
+        enableHTML: true,
+        preventDuplicates: true
+    };
 
     constructor(private toastr: ToastrService) { }
 
