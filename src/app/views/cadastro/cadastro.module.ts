@@ -9,6 +9,9 @@ import { ProdutosComponent } from './produtos.component';
 // Theme Routing
 import { CadastroRoutingModule } from './cadastro-routing.module';
 
+// componentes de serviços de acesso a dados
+import { ClientesDALService, ProdutosDALService } from '../../services';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -18,6 +21,10 @@ import { CadastroRoutingModule } from './cadastro-routing.module';
     // BaseComponent,
     ClientesComponent,
     ProdutosComponent
+  ],
+  providers: [
+    ClientesDALService,
+    ProdutosDALService
   ]
 })
 export class CadastroModule { }

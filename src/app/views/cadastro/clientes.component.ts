@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { Cliente } from '../../models/cliente';
+import { ClientesDALService } from '../../services';
 // import { getStyle, rgbToHex } from '@coreui/coreui/dist/js/coreui-utilities';
 
 @Component({
@@ -6,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientesComponent implements OnInit {
 
-  public listaClientes: any = [];
+  public listaClientes: Observable<Cliente[]>;
 
   //#region [atributos para controle de páginação e filtros]
   /* configuracao */
@@ -54,7 +58,7 @@ export class ClientesComponent implements OnInit {
   //#endregion
 
 
-  constructor() { }
+  constructor(private clienteDalServ: ClientesDALService) { }
 
   ngOnInit(): void {
     this.carreraLista();
@@ -62,6 +66,7 @@ export class ClientesComponent implements OnInit {
 
   carreraLista() {
     // ler do banco...
+    this.listaClientes = this.clienteDalServ.getLista();
   }
 
   //#region [filtro e paginação]
