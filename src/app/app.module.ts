@@ -37,11 +37,25 @@ import {
 // Import routing module
 import { AppRoutingModule } from './app.routing';
 
+// Firebase
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
 // Import 3rd party components
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { ToastrModule } from 'ngx-toastr';
+import { LoadingModule } from 'ngx-loading';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { Select2Module } from 'ng2-select2';
+import { LaddaModule } from 'angular2-ladda';
+import { Ng2TableModule } from 'ng2-table/ng2-table';
+import { PaginationModule } from 'ngx-bootstrap';
+
 
 // DATEPICKER
 import { defineLocale } from 'ngx-bootstrap';
@@ -51,7 +65,7 @@ defineLocale('pt-br', ptBrLocale);
 // componentes de autenticação
 import { AutenticacaoService, AuthGuard, CustomToastOption } from './services';
 const APP_AUTH = [AutenticacaoService, AuthGuard];
-const TOAST_OPTIONS: Partial<CustomToastOption> = {};
+// const TOAST_OPTIONS: Partial<CustomToastOption> = {};
 
 import { NotificacaoService } from './services';
 const COMP_SERVICE = [NotificacaoService];
@@ -71,8 +85,19 @@ const COMP_SERVICE = [NotificacaoService];
     PerfectScrollbarModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
-    ToastrModule.forRoot(TOAST_OPTIONS),
-    ChartsModule
+    ToastrModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,    //  for database features
+    AngularFireAuthModule,     //  for auth features
+    AngularFireStorageModule,  //  for storage features
+    ChartsModule,
+    Select2Module,
+    TooltipModule,
+    // TextMaskModule,
+    LaddaModule,
+    LoadingModule,
+    Ng2TableModule,
+    PaginationModule
   ],
   declarations: [
     AppComponent,

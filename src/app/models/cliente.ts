@@ -1,10 +1,11 @@
 export class Cliente {
-  codigo: 0;
+  $key: '';
   nome: '';
   endereco: '';
-  cnpj: 0;
+  cpf_cnpj: '';
   email: '';
   celular: '';
-  telefone1: '';
-  telefone2: '';
+  telefone: '';
+  tipo: '';
+  inativo: false;
 }

@@ -70,11 +70,11 @@ export class ClientesComponent implements OnInit {
   }
 
   //#region [filtro e paginação]
-  public changePage(page: any, data: Array<any> = this.listaClientes): Array<any> {
+  /* public changePage(page: any, data: Array<any> = this.listaClientes): Array<any> {
     const start = (page.page - 1) * page.itemsPerPage;
     const end = page.itemsPerPage > -1 ? (start + page.itemsPerPage) : data.length;
     return data.slice(start, end);
-  }
+  } */
   public changeSort(data: any, config: any): any {
     if (!config.sorting) {
       return data;
@@ -157,6 +157,7 @@ export class ClientesComponent implements OnInit {
 
     return filteredData;
   }
+
   public onChangeTable(config: any, page: any = { page: this.page, itemsPerPage: this.itemsPerPage }): any {
     if (config.filtering) {
       Object.assign(this.config.filtering, config.filtering);
@@ -168,19 +169,16 @@ export class ClientesComponent implements OnInit {
 
     const filteredData = this.changeFilter(this.listaClientes, this.config);
     const sortedData = this.changeSort(filteredData, this.config);
-    this.rows = page && config.paging ? this.changePage(page, sortedData) : sortedData;
+    // this.rows = page && config.paging ? this.changePage(page, sortedData) : sortedData;
     this.length = sortedData.length;
   }
 
   /*adiciona a imagem do botão na tabela*/
   private extendData() {
     // For every resulttable entry
-    for (let i = 0; i < this.listaClientes.length; i++) {
-      /* this.listaAuditorias[i].foto = `<div class="text-center"> <div class="avatar text-center"><img src="${this.listaAuditorias[i].foto}" class="img-avatar" alt=""></div></div>`;
-      this.listaAuditorias[i].nome = `<div>${this.listaAuditorias[i].nome}</div> <div class="small text-muted"> ${this.listaAuditorias[i].mantenedora ? this.listaAuditorias[i].mantenedora : this.label.independente} </div>`;
-      this.listaAuditorias[i].status = `<div class="font-weight-bold text-nowrap">${this.listaAuditorias[i].status}</div><div class="text-muted small">${this.listaAuditorias[i].processo}</div>`;
-      this.listaAuditorias[i].sistemaGestao = `<div class="font-weight-bold">${this.listaAuditorias[i].sigla}</div><div class="text-muted small text-nowrap">${this.listaAuditorias[i].nomeSistemaGestao}</div>`; */
-    }
+    /* for (let i = 0; i < this.listaClientes.length; i++) {
+
+    } */
   }
   //#endregion
 
