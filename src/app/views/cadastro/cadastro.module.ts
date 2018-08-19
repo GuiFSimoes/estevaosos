@@ -11,11 +11,18 @@ import { CadastroRoutingModule } from './cadastro-routing.module';
 
 // componentes de serviços de acesso a dados
 import { ClientesDALService, ProdutosDALService } from '../../services';
+import { FormsModule } from '@angular/forms';
+
+import { Ng2TableModule } from 'ng2-table/ng2-table';
+import { PaginationModule } from 'ngx-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
-    CadastroRoutingModule
+    CadastroRoutingModule,
+    FormsModule,
+    Ng2TableModule,
+    PaginationModule
   ],
   declarations: [
     // BaseComponent,

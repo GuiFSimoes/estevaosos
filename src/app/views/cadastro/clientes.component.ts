@@ -4,13 +4,16 @@ import { Observable } from 'rxjs';
 import { Cliente } from '../../models/cliente';
 import { ClientesDALService } from '../../services';
 // import { getStyle, rgbToHex } from '@coreui/coreui/dist/js/coreui-utilities';
+// import { NgTableComponent, NgTableFilteringDirective, NgTablePagingDirective, NgTableSortingDirective } from 'ng2-table/ng2-table';
+
 
 @Component({
   templateUrl: 'clientes.component.html'
 })
 export class ClientesComponent implements OnInit {
 
-  public listaClientes: Observable<Cliente[]>;
+  // private listaClientesAsync: Observable<Cliente[]>;
+  public listaClientes: Cliente[];
 
   //#region [atributos para controle de páginação e filtros]
   /* configuracao */
@@ -66,15 +69,20 @@ export class ClientesComponent implements OnInit {
 
   carreraLista() {
     // ler do banco...
-    this.listaClientes = this.clienteDalServ.getLista();
+    // this.listaClientesAsync = this.clienteDalServ.getLista();
+    this.clienteDalServ.getLista().subscribe(dados => {
+      this.listaClientes = dados;
+      this.length = dados.length;
+      this.onChangeTable(this.config);
+    });
   }
 
   //#region [filtro e paginação]
-  /* public changePage(page: any, data: Array<any> = this.listaClientes): Array<any> {
+  public changePage(page: any, data: Array<any> = this.listaClientes): Array<any> {
     const start = (page.page - 1) * page.itemsPerPage;
     const end = page.itemsPerPage > -1 ? (start + page.itemsPerPage) : data.length;
     return data.slice(start, end);
-  } */
+  }
   public changeSort(data: any, config: any): any {
     if (!config.sorting) {
       return data;
@@ -169,7 +177,7 @@ export class ClientesComponent implements OnInit {
 
     const filteredData = this.changeFilter(this.listaClientes, this.config);
     const sortedData = this.changeSort(filteredData, this.config);
-    // this.rows = page && config.paging ? this.changePage(page, sortedData) : sortedData;
+    this.rows = page && config.paging ? this.changePage(page, sortedData) : sortedData;
     this.length = sortedData.length;
   }
 

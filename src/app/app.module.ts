@@ -84,6 +84,7 @@ const COMP_SERVICE = [NotificacaoService];
     AppSidebarModule,
     PerfectScrollbarModule,
     BsDropdownModule.forRoot(),
+    PaginationModule.forRoot(),
     TabsModule.forRoot(),
     ToastrModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -96,8 +97,7 @@ const COMP_SERVICE = [NotificacaoService];
     // TextMaskModule,
     LaddaModule,
     LoadingModule,
-    Ng2TableModule,
-    PaginationModule
+    Ng2TableModule
   ],
   declarations: [
     AppComponent,

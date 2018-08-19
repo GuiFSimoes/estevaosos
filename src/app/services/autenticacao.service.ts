@@ -119,7 +119,7 @@ export class AutenticacaoService {
       // console.log('lc 2: ', firebase.auth().languageCode);
       firebase.auth().signInWithEmailAndPassword(email, senha)
         .then(usuarioAtenticado => {
-          console.log('Retorno firebase: ', usuarioAtenticado);
+          // console.log('Retorno firebase: ', usuarioAtenticado);
           this.user = usuarioAtenticado;
           this.logado = true;
           // console.log('lc 3.1: ', firebase.auth().languageCode);

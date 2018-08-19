@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { environment } from '../environments/environment';
+
+import * as firebase from 'firebase';
 
 // import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
@@ -18,7 +21,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    // firebase.initializeApp(environment.firebaseConfig);
+    firebase.initializeApp(environment.firebaseConfig);
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
         return;
