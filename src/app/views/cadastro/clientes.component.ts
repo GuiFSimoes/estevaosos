@@ -45,7 +45,9 @@ export class ClientesComponent implements OnInit {
     paging: true,
     sorting: { columns: this.columns },
     filtering: { filterString: '' },
-    className: ['table-striped', 'table-bordered', 'table-hover', 'thead-default', 'table-responsive']
+    className: ['table', 'table-hover', 'table-striped', 'table-align-middle', 'thead-light']
+    // className: ['table-striped', 'table-bordered', 'table-hover', 'thead-default', 'table-responsive']
+    // table table-hover table-striped table-align-middle
   };
   public accent_map = {
     'à': 'a', 'á': 'a', 'â': 'a', 'ã': 'a', 'ä': 'a', 'å': 'a', // a
@@ -71,6 +73,7 @@ export class ClientesComponent implements OnInit {
     // ler do banco...
     // this.listaClientesAsync = this.clienteDalServ.getLista();
     this.clienteDalServ.getLista().subscribe(dados => {
+      // console.log('dados carregados...');
       this.listaClientes = dados;
       this.length = dados.length;
       this.onChangeTable(this.config);

@@ -8,24 +8,26 @@
       <p>Lista de clientes</p>
 
       <!-- FIltro Tabela -->
-      <div class="row">
+      <div class="row mb-4">
         <div class="col-lg-6 col-md-9 col-sm-12">
           <div class="input-group">
-            <span class="input-group-addon">
-              Filtrar: &nbsp;&nbsp;
-              <select id="filtro" class="form-control" (change)="onChangeTable(config)" [(ngModel)]="campoFiltro" name="filtro">
-                <option value="">Todas colunas</option>
-                <option value="nome">Cliente</option>
-                <option value="cpf">CPF/CNPJ</option>
-                <option value="status">status</option>
-              </select>
-            </span>
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                Filtrar: &nbsp;&nbsp;
+                <select id="filtro" class="form-control" (change)="onChangeTable(config)" [(ngModel)]="campoFiltro" name="filtro">
+                  <option value="">Todas colunas</option>
+                  <option value="nome">Cliente</option>
+                  <option value="cpf">CPF/CNPJ</option>
+                  <option value="status">status</option>
+                </select>
+              </span>
+            </div>
             <input placeholder="Filtro" [ngTableFiltering]="config.filtering" class="form-control" (tableChanged)="onChangeTable(config)"
             />
           </div>
         </div>
       </div>
-      <br>
+
       <!-- testtable -->
       <!-- <div class="row">
         <div class="col-12">
@@ -53,20 +55,38 @@
         </div>
       </div> -->
 
-      
-      <div class="row">
-        <div class="col">
-          <ng-table [config]="config" (tableChanged)="onChangeTable(config)" [rows]="rows" [columns]="columns">
-          </ng-table>
-        </div>
+
+      <div class="table-responsive" *ngIf="listaClientes; else carregandoLista">
+        <ng-table [config]="config" (tableChanged)="onChangeTable(config)" [rows]="rows" [columns]="columns">
+        </ng-table>
       </div>
 
-      <div class="row">
+      <ng-template #carregandoLista>
+        <div class="sk-folding-cube">
+          <div class="sk-cube1 sk-cube"></div>
+          <div class="sk-cube2 sk-cube"></div>
+          <div class="sk-cube4 sk-cube"></div>
+          <div class="sk-cube3 sk-cube"></div>
+        </div>
+      </ng-template>
+
+      <!-- <div class="row">
+        <div class="col">
+          <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="row mt-2">
         <div class="col-3">
           <div class="input-group">
-            <span class="input-group-addon">
-              Itens por página
-            </span>
+            <div class="input-group-prepend">
+              <span class="input-group-text">Itens por página</span>
+            </div>
             <select id="itempagina" class="form-control" [(ngModel)]="itemsPerPage" (change)="onChangeTable(config, { page: 1, itemsPerPage: itemsPerPage })"
               name="itempagina">
               <option value=10>10</option>

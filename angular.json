@@ -28,6 +28,7 @@
               "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/select2/dist/css/select2.min.css",
+              "node_modules/spinkit/css/spinners/11-folding-cube.css",
               "src/scss/style.scss"
             ],
             "stylePreprocessorOptions": {

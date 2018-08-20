@@ -1,1 +1,8 @@
 // Here you can add other styles
+.thead-light {
+  th {
+    color: $table-head-color;
+    background-color: $table-head-bg;
+    border-color: $table-border-color;
+  }
+}
